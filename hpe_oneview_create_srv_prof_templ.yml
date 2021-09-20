@@ -3,7 +3,7 @@
   gather_facts: no
 
   vars:
-    server_profile_template_name: "Bechtle - Test"
+    server_profile_template_name: "Workshop - Test"
     server_hardware_type_name: "SY 480 Gen10 4"
     enclosure_group_name: "Demo1_Rack12_EG"
     ## server_profile_name: "RHEl76"
@@ -45,7 +45,7 @@
             manageBios: true
             overriddenSettings: 
              - id: "CustomPostMessage"
-               value: "This is the Bechtle Custom Post screen message"
+               value: "This is the Workshop Custom Post screen message"
              - id: "ExtendedMemTest"
                value: "Disabled"
           boot:

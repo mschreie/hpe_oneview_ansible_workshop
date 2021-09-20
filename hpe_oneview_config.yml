@@ -11,8 +11,8 @@
 
     - name: Set Oneview Server Profile Name for the host in question
       set_fact:
-        ov_profile: "Bechtle_{{ inventory_hostname_short }}"
-      when: ov_profile is undefined or ov_profile is not match ("^Bechtle_.*")
+        ov_profile: "Workshop_{{ inventory_hostname_short }}"
+      when: ov_profile is undefined or ov_profile is not match ("^Workshop_.*")
 
 
 

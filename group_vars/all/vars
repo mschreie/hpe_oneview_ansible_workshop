@@ -1,6 +1,6 @@
 ---
 # Oneview configuration
-ov_template: Bechtle
+ov_template: Workshop
 # VMware Install related vars
 cust_iso_file: custom_esxi.iso
 bastion_get_url: "http://{{ hostvars.bastion_host.ansible_host }}/isos"
