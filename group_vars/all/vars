@@ -1,0 +1,41 @@
+---
+# Oneview configuration
+ov_template: Bechtle
+# VMware Install related vars
+cust_iso_file: custom_esxi.iso
+bastion_get_url: "http://{{ hostvars.bastion_host.ansible_host }}/isos"
+bastion_iso_dir: /var/www/html/isos
+esxi_installiso: "{{ bastion_get_url }}/{{ cust_iso_file }}"
+
+# adjustable VMware installation related vars:
+org_iso:  "{{ bastion_iso_dir }}/VMware-VMvisor-Installer-7.0U2a-17867351.x86_64.iso"
+cust_iso: "{{ bastion_iso_dir }}/{{ cust_iso_file }}"
+esxi_rootpw: "{{ vault_esxi_rootpw }}"
+## Hint: put vault_ - variables into a seperate vault file named "vault"
+## encrpyt that file with:  ansible-vault encrypt group_vars/all/vault
+## assure the credential for file-encryption is put into tower as "vault"
+## and the credential is available to the playbooks
+
+
+# static or dhcp
+#### static will not realy work this way for more than one host to deploy ....
+#### but the esxi parameters must be tight to the specific host in the inventory
+#### we would also need different naming for the (different) iso-images
+#### second step approach
+esxi_bootproto: dhcp
+# only if static:   # not finished yet
+esxi_ip: 1.2.3.4  
+esxi_mask: 255.255.255.0
+esxi_gw: 1.2.3.1
+esxi_fqdn: esxi.example.com
+esxi_nameserver: 1.2.3.1
+esxi_domain: example.com
+
+# fixed WMware installation related vars:
+ks_template: ks.cfg
+ks_dest: "{{ wrk_dir }}/ks.cfg"
+bootoption: "runweasel ks=cdrom:/KS.CFG"
+bootcfg_dest: "{{ wrk_dir }}/efi/boot/boot.cfg"
+bootcfg_dest2: "{{ wrk_dir }}/boot.cfg"
+mnt_dir:  /esxi_cdrom_mount
+wrk_dir:  /esxi_cdrom

@@ -1,0 +1,41 @@
+---
+- hosts: localhost
+  gather_facts: true
+
+  tasks:
+     
+    - name: Gather facts about all Enclosures
+      hpe.oneview.oneview_enclosure_facts:
+        hostname: "{{ oneview_hostname }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+      delegate_to: localhost
+
+    - name: get list of deviceBays
+      set_fact:
+        device_bays: "{{ enclosures[0].deviceBays }}"
+
+    - name: deviceBays
+      debug:
+        var: device_bays
+
+    - name: find IP of deviceBay input_bayNumber
+      set_fact:
+        bay: "{{ item }}"
+      with_items:
+        - "{{ device_bays }}"
+      when:
+        - item["bayNumber"] == input_bayNumber
+
+    - name: IP of bay number input_bayNumber
+      debug:
+        var: bay.ipv4Setting.ipAddress
+
+    - name: Set iLO ip address
+      set_fact:
+       ilo_ip_address: bay.ipv4Setting.ipAddress
+
+
+

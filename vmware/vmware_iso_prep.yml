@@ -1,0 +1,78 @@
+---
+- hosts: bastion_host
+  gather_facts: no
+  ##  become: true
+
+  tasks:
+   - name: Mount installation ISO read-only
+     mount:
+       path: "{{ mnt_dir }}"
+       src:  "{{ org_iso }}"
+       fstype: "iso9660"
+       opts: loop,ro
+       state: mounted
+     become: true
+
+   - name: Copy Iso content to workingdir
+     copy:
+       src:  "{{ mnt_dir }}/"
+       dest: "{{ wrk_dir }}/"
+       remote_src: yes
+     become: true
+     # needs to run as root otherwise all files will change ownership 
+
+   - name: Unmount installation ISO 
+     mount:
+       path: "{{ mnt_dir }}"
+       state: unmounted
+     become: true
+
+   - name: create custom kickstart file 
+     template:
+       src: "{{ ks_template }}"
+       dest: "{{ ks_dest }}"
+       owner: root
+       group: root
+     become: true
+
+   - name: add boot options
+     # Replace before the expression till the begin of the file (requires >=2.4)
+     replace:
+       path: "{{ bootcfg_dest }}"
+       regexp: '^(kernelopt=.*)$'
+       #replace: '\1 {{ bootoption }}'    # would add our options to the existing ones
+       replace: 'kernelopt={{ bootoption }}'    # adds our options instead of the existing ones
+     become: true
+
+   - name: add boot options II
+     # Replace before the expression till the begin of the file (requires >=2.4)
+     replace:
+       path: "{{ bootcfg_dest2 }}"
+       regexp: '^(kernelopt=.*)$'
+       #replace: '\1 {{ bootoption }}'    # would add our options to the existing ones
+       replace: 'kernelopt={{ bootoption }}'    # adds our options instead of the existing ones
+     become: true
+
+   - name: assure destination directory to be in place
+     file: 
+       path: "{{ bastion_iso_dir }}"
+       state: directory
+       modification_time: preserve
+       access_time: preserve
+     become: true
+
+
+   - name: create customized iso image
+     shell: "genisoimage -relaxed-filenames -J -R -o {{ cust_iso }} -b isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot -e efiboot.img -no-emul-boot {{ wrk_dir }}"
+     become: true
+
+# not needed as we create the iso right into the bastion_iso_dir
+#   - name: put customized iso image in place
+#     copy: 
+#       src: "{{ cust_iso }}"
+#       dest: "{{ bastion_iso_dir }}"
+#       remote_src: yes
+#       owner: root
+#       group: root
+#       mode: '0644'
+

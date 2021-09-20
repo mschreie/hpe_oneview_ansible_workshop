@@ -1,0 +1,23 @@
+---
+- hosts: esx_hosts
+  gather_facts: no
+  become: false
+
+  tasks:
+  - name: debug hostvars
+    debug:
+     var: hostvars
+
+  - name: debug bastion_host ipaddress
+    debug:
+     var: hostvars.bastion_host.ansible_host
+
+  - name: Task to boot a system using an ISO from an HP iLO interface
+    hpilo_boot:
+      host: "{{ ilo_ip }}" 
+      login: "{{ ilo_username }}"
+      password: "{{ ilo_password }}"
+      media: cdrom
+      image: "{{ esxi_installiso }}" 
+    delegate_to: localhost
+

@@ -1,0 +1,126 @@
+---
+- hosts: esx_hosts
+  gather_facts: no
+
+  vars:
+    server_profile_template_name: "Bechtle - Test"
+    server_hardware_type_name: "SY 480 Gen10 4"
+    enclosure_group_name: "Demo1_Rack12_EG"
+    ## server_profile_name: "RHEl76"
+    deployment_network_name: "Redhat_workload"
+    ## fc_network_1: "FC01"
+    ## fc_network_2: "FC02"
+    volume_storage_system: "ECOSTORE01"
+    ## os_deployment_plan_name: "RHEL"
+    ## storage_pool_name: "SSD_r5"
+    ## volume_template_name: "SVT-1"
+    ## firmware_baseline_name: "HPE Synergy Custom SPP 2018110 2019 02 15"
+  tasks:
+    - name: Create a server profile template
+      hpe.oneview.oneview_server_profile_template:
+        hostname: "{{ hostvars.oneview_host.ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+
+        state: present
+        data:
+          name: "{{ server_profile_template_name }}"
+          serverHardwareTypeName: "{{ server_hardware_type_name }}"
+          enclosureGroupName: "{{ enclosure_group_name }}"
+          #initialScopeNames:
+          #  - Renamed
+          #  - test
+          managementProcessor: 
+            complianceControl: "Checked"
+            manageMp: true
+            mpSettings: 
+              - settingType: "AdministratorAccount"
+                args: 
+                  deleteAdministratorAccount: false
+                  password: r3dh4t1!
+          bios:
+            complianceControl: "Checked"
+            manageBios: true
+            overriddenSettings: 
+             - id: "CustomPostMessage"
+               value: "This is the Bechtle Custom Post screen message"
+             - id: "ExtendedMemTest"
+               value: "Disabled"
+          boot:
+            manageBoot: true
+            order:
+              - "HardDisk"
+          bootMode:
+            manageMode: true
+            mode: "UEFIOptimized"
+            pxeBootPolicy: "Auto"
+            secureBoot: "Disabled"
+          connectionSettings:
+            complianceControl: "CheckedMinimum"
+            manageConnections: true
+            connections: 
+              - id: 1
+                name: "Red Hat Wrkld"
+                functionType: "Ethernet"
+                networkName: "{{ deployment_network_name }}"
+                ##networkName: null
+                portId: "Mezz 3:1-a"
+                requestedMbps: 2500
+                requestedVFs: "Auto"
+                boot:
+                  priority: "Primary"
+                  ethernetBootType: "PXE"
+                  bootVlanId: null
+                lagName: null
+                managed: true
+                isolatedTrunk: false
+          localStorage: 
+            complianceControl: "CheckedMinimum"
+            ##sasLogicalJBODs: null
+            controllers: 
+              - deviceSlot: "Embedded"
+                mode: "Mixed"
+                initialize: true
+                driveWriteCache: "Unmanaged"
+                predictiveSpareRebuild: "Unmanaged"
+                logicalDrives: 
+                  - name: "OS_VOL"
+                    raidLevel: "RAID1"
+                    bootable: true
+                    numPhysicalDrives: 2
+                    driveTechnology: null
+                    sasLogicalJBODId: null
+                    accelerator: "Unmanaged"
+                    numSpareDrives: null
+          sanStorage:
+                complianceControl: "Unchecked"
+                manageSanStorage: false
+          firmware:
+            complianceControl: Unchecked
+            manageFirmware: false
+            ##firmwareBaselineName: "{{ firmware_baseline_name }}"
+            ##firmwareInstallType: "FirmwareAndOSDrivers"
+            forceInstallFirmware: false
+          osDeploymentSettings: null
+        params:
+          force: true
+      delegate_to: localhost
+      register: result
+    - debug: msg= "{{ result.msg }}"
+
+    - name: Gather facts about the Server Profile Template by name
+      hpe.oneview.oneview_server_profile_template_facts:
+        hostname: "{{ hostvars.oneview_host.ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+
+        name: "{{ server_profile_template_name }}"
+      delegate_to: localhost
+
+    - debug: var=server_profile_templates
+
+

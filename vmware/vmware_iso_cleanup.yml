@@ -1,0 +1,32 @@
+---
+- hosts: bastion_host
+  gather_facts: no
+  ##  become: true
+
+  tasks:
+
+   - name: Unmount installation ISO 
+     mount:
+       path: "{{ mnt_dir }}"
+       state: unmounted
+     become: true
+
+   - name: Remove workingdir with Iso content
+     file:
+       path: "{{ item }}"
+       state: absent
+     become: true
+     loop:
+        - "{{ wrk_dir }}"
+        - "{{ mnt_dir }}"
+     # needs to run as root as file ownership will not allow deletion otherwise 
+
+
+#   i leave the  customized iso image where it is
+#   - name: Remove customized iso image
+#     file:
+#       path: "{{ cust_iso }}"
+#       state: absent
+#     become: true
+#     # needs to run as root as file ownership will not allow deletion otherwise 
+
