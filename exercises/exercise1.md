@@ -1,4 +1,50 @@
-## Virtual Environment
+# Virtual Environment
+
+
+## Setting up Ansible Tower Preparation:
+
+After the installation of Red Hat Ansible Tower (Controller), you will need to finalize a number of tasks in order to be ready for the workshop.
+
+### Register Red Hat Ansible Tower (Controller) .
+
+![Ansible_Tower](/images/ansible-workshop-illustration-01.png)
+
+
+1. Ansible Tower (Controller) has to be registered to Red Hat Network. For that you'll need : Red Hat Account credentials or Red Hat Subscription Manifest a manifest file.
+2. Configure Ansible Tower (Controller) to download Ansible content collections:
+
+
+   **a. Certified Content**: In the portal of Automation Hub, users have direct access to certified content collections from Red Hat and Partners. Certified collections are developed, tested, built, delivered, and supported by Red Hat and its Partners. To find more details about the scope of support, check the [Ansible Certified Content FAQ](https://access.redhat.com/articles/4916901).
+
+   **b. Supported Automation**: Automation Hub is a one-stop-shop for Ansible content that is backed by support from Red Hat to deliver additional reassurance for customers. Additional supportability claims for these collections may be provided under the “Maintained and Supported By” one of Red Hat Partners. A list of currently supported content can be found in the Knowledge base.
+   
+   **c. Ansible Galaxy**: Ansible Galaxy is the upstream location for the Ansible community that initially started to provide pre-packaged units of work known as Ansible roles. Roles can be used from Ansible Playbooks and immediately put to work. in a recent version of Galaxy started to provide Ansible content collections as well.
+Ansible Galaxy resides on https://galaxy.ansible.com/
+
+   **d. Accessing collections from Automation Hub**: Ansible collections can be used and downloaded from multiple locations. They can either be downloaded using a requirement file, statically included in the git repository or eventually installed separately in the virtual environment.
+
+## Step 1:Authenticate Ansible Tower to Automation Hub
+Creating a token
+Authenticating Ansible Tower requires a token. It can be achieved using the steps below:
+
+ 1) Navigate to [https://cloud.redhat.com/ansible/automation-hub/token/](https://cloud.redhat.com/ansible/automation-hub/token/)
+ 
+![Create_Token](/images/create-token.png)
+          
+ 2) Click Load Token.
+ 3) Click copy icon to copy the API token to the clipboard.
+
+
+![Copy_Token](/images/copy-token.png)
+
+
+Using authentication token as user admin, navigate to the **Settings > Jobs** <br>
+
+Set PRIMARY GALAXY SERVER URL to https://cloud.redhat.com/api/automation-hub/ <br>
+Set PRIMARY GALAXY AUTHENTICATION URL to https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token <br>
+Set PRIMARY GALAXY SERVER TOKEN to <COPIED_TOKEN><br>
+
+## Step 2: Virtual Environment
 
 The Ansible virtualenv is very easy to manage. You will need access to the machine where Ansible Tower is installed. It is also recommended that you configure permissions properly before making any changes to the virtualenv.
 
@@ -8,7 +54,7 @@ An example of the recommended permissions can be found below and in the docs her
 # source /var/lib/awx/venv/ansible/bin/activate
 # umask 0022
 ```
- ## Create a new Virtual Environment
+ ## Step 3: Create a new Virtual Environment
 
 Create a virtual environment using the python -m venv &lt;environment-name> command. You can give any name to your Python virtual environment.
 
@@ -17,7 +63,7 @@ Create a virtual environment using the python -m venv &lt;environment-name> comm
 # python3 -m venv hpe_venv
 ```
 
-## Activate a Python virtual environment
+## Step 4: Activate a Python virtual environment
 
 After creating a virtual environment, you must enter the environment manually. This changes your active environment variables from your current shell to those required for Python to create a virtual environment:
 
@@ -28,7 +74,7 @@ Python 3.6.8
 ```
 
 
-## Install HPE required SDKs in a virtual environment
+## Step 5: Install HPE required SDKs in a virtual environment
 
 With your virtual environment set up and active, you can install the HPE sdks required for this use-case. In this workshop we will focus on :
   - HPE OneView
