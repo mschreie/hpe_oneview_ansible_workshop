@@ -29,13 +29,13 @@ Authenticating Ansible Tower requires a token. It can be achieved using the step
 
  1) Navigate to [https://cloud.redhat.com/ansible/automation-hub/token/](https://cloud.redhat.com/ansible/automation-hub/token/)
  
-          ![Create_Token](/images/create-token.png)
+![Create_Token](/images/create-token.png)
           
  2) Click Load Token.
  3) Click copy icon to copy the API token to the clipboard.
 
 
-          ![Copy_Token](/images/copy-token.png)
+![Copy_Token](/images/copy-token.png)
 
 
 Using authentication token
