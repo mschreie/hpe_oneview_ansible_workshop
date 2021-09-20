@@ -26,7 +26,7 @@
               - settingType: "AdministratorAccount"
                 args: 
                   deleteAdministratorAccount: false
-                  password: r3dh4t1!
+                  password: "{{ ilo_password }}"
           bios:
             complianceControl: "Checked"
             manageBios: true
@@ -95,6 +95,9 @@
           force: true
       delegate_to: localhost
       register: result
+      run_once: true
+
+
     - debug: msg= "{{ result.msg }}"
 
     - name: Gather facts about the Server Profile Template by name
