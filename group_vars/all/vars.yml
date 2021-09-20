@@ -8,7 +8,6 @@ bastion_iso_dir: /var/www/html/isos
 esxi_installiso: "{{ bastion_get_url }}/{{ cust_iso_file }}"
 
 # OneView Server profile Template creation
-ov_template
 server_profile_template_name: "{{ ov_template }}"
 server_hardware_type_name: "SY 480 Gen10 4"
 enclosure_group_name: "Demo1_Rack12_EG"
