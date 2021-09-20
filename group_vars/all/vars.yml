@@ -7,6 +7,20 @@ bastion_get_url: "http://{{ hostvars.bastion_host.ansible_host }}/isos"
 bastion_iso_dir: /var/www/html/isos
 esxi_installiso: "{{ bastion_get_url }}/{{ cust_iso_file }}"
 
+# OneView Server profile Template creation
+ov_template
+server_profile_template_name: "{{ ov_template }}"
+server_hardware_type_name: "SY 480 Gen10 4"
+enclosure_group_name: "Demo1_Rack12_EG"
+## server_profile_name: "RHEl76"
+deployment_network_name: "Redhat_workload"
+## fc_network_1: "FC01"
+## fc_network_2: "FC02"
+## os_deployment_plan_name: "RHEL"
+## storage_pool_name: "SSD_r5"
+## volume_template_name: "SVT-1"
+## firmware_baseline_name: "HPE Synergy Custom SPP 2018110 2019 02 15"
+
 # adjustable VMware installation related vars:
 org_iso:  "{{ bastion_iso_dir }}/VMware-VMvisor-Installer-7.0U2a-17867351.x86_64.iso"
 cust_iso: "{{ bastion_iso_dir }}/{{ cust_iso_file }}"

@@ -2,19 +2,6 @@
 - hosts: esx_hosts
   gather_facts: no
 
-  vars:
-    server_profile_template_name: "Workshop - Test"
-    server_hardware_type_name: "SY 480 Gen10 4"
-    enclosure_group_name: "Demo1_Rack12_EG"
-    ## server_profile_name: "RHEl76"
-    deployment_network_name: "Redhat_workload"
-    ## fc_network_1: "FC01"
-    ## fc_network_2: "FC02"
-    volume_storage_system: "ECOSTORE01"
-    ## os_deployment_plan_name: "RHEL"
-    ## storage_pool_name: "SSD_r5"
-    ## volume_template_name: "SVT-1"
-    ## firmware_baseline_name: "HPE Synergy Custom SPP 2018110 2019 02 15"
   tasks:
     - name: Create a server profile template
       hpe.oneview.oneview_server_profile_template:
