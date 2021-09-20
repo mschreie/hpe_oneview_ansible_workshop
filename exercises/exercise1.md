@@ -1,3 +1,6 @@
+# Virtual Environment
+
+
 ## Setting up Ansible Tower Preparation:
 
 After the installation of Red Hat Ansible Tower (Controller), you will need to finalize a number of tasks in order to be ready for the workshop.
@@ -9,7 +12,15 @@ After the installation of Red Hat Ansible Tower (Controller), you will need to f
 
 1- Ansible Tower (Controller) has to be registered to Red Hat Network. For that you'll need : Red Hat Account credentials or Red Hat Subscription Manifest a manifest file.
 
-2- 
+2- Configure Ansible Tower (Controller) to download Ansible content collections from :
+
+  a- Ansible Automation Hub : It is the official location to discover and download supported collections, included as part of an Ansible Automation Platform subscription. These content collections contain modules, plugins, roles, and playbooks in a downloadable package.
+
+Ansible Automation Hub gives you direct access to trusted content collections from Red Hat and Certified Partners. You can find content by topic or Ansible Partner organizations.
+
+
+  b- Red Hat Galaxy:
+  
 
 ## Virtual Environment
 
