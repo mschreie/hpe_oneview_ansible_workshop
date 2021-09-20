@@ -1,3 +1,16 @@
+## Setting up Ansible Tower Preparation:
+
+After the installation of Red Hat Ansible Tower (Controller), you will need to finalize a number of tasks in order to be ready for the workshop.
+
+### Register Red Hat Ansible Tower (Controller) .
+
+![Ansible_Tower](ansible-workshop-illustration-04.png)
+
+
+1- Ansible Tower (Controller) has to be registered to Red Hat Network. For that you'll need : Red Hat Account credentials or Red Hat Subscription Manifest a manifest file.
+
+2- 
+
 ## Virtual Environment
 
 The Ansible virtualenv is very easy to manage. You will need access to the machine where Ansible Tower is installed. It is also recommended that you configure permissions properly before making any changes to the virtualenv.
