@@ -3,5 +3,5 @@ bastion_host ansible_host=10.6.80.25
 oneview_host ansible_host=composer.synergy.hybridit.hpecic.net
 
 [esx_hosts]
-esx1	ansible_host="1.2.3.4" 	ov_hardware="Demo1_Rack12_Frame3, bay 5" ilo_ip=10.6.25.137
-esx2	ansible_host="1.2.3.5" 	ov_hardware="Demo1_Rack12_Frame3, bay 6" ilo_ip=10.6.25.138
+esx1    ansible_host="1.2.3.4"   ov_hardware="Demo1_Rack12_Frame3, bay 5" ilo_ip=10.6.25.137
+esx2    ansible_host="1.2.3.5"   ov_hardware="Demo1_Rack12_Frame3, bay 6" ilo_ip=10.6.25.138
