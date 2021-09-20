@@ -7,7 +7,7 @@ After the installation of Red Hat Ansible Tower (Controller), you will need to f
 
 ### Register Red Hat Ansible Tower (Controller) .
 
-![Ansible_Tower](/images/ansible-workshop-illustration-04.png)
+![Ansible_Tower](/images/ansible-workshop-illustration-01.png)
 
 
 1- Ansible Tower (Controller) has to be registered to Red Hat Network. For that you'll need : Red Hat Account credentials or Red Hat Subscription Manifest a manifest file.
