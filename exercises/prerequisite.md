@@ -28,7 +28,7 @@ Additionaly we need a HPE Gen 10 Server which can be deployed onto.
 ## RHEL ISO image needed
 We did not automate the RHEL installation process so please choose the following when installing manualy:
 
-Fetch an RHEL isntallation image from:
+Fetch an RHEL installation image from:
 https://access.redhat.com/products/red-hat-enterprise-linux => Login => Downloard RHEL 8.4 => 
 Red Hat Enterprise Linux 8.4 Binary DVD
 
