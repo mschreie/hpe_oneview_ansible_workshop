@@ -46,7 +46,7 @@ Using authentication token as user admin, navigate to the **Credentials > New Cr
 As soon as you create the Automation Hub credentials, it is time to attached these credentials to the right organization
 Navigate to the **Organizations > Default** as follows <br>
 
-** Please make sure to attache Automation Hub Credentials, then Ansible Galaxy credentials to set the precedence where to look for Ansible Content Collections.**
+**/!\ Please make sure to attache Automation Hub Credentials, then Ansible Galaxy credentials to set the precedence where to look for Ansible Content Collections.**
 
 
 ![Attach_Token](/images/attach-token.png)
