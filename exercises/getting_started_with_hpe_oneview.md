@@ -4,10 +4,10 @@
 
 This exercise is going to assume the prerequisites below are all met:
 
-* You have already have a good understand of Ansible and Red Hat Ansible Tower (Controller)
+* You already have a good understanding of Ansible and Red Hat Ansible Tower (Controller)
 * You have access to an lab environment which includes:
-    * 1 x HPE rack that is powered on with at least 1 x physical Server
-    * 1 x HPE OneView connected to the management network.
+    * at least 1 x physical HPE Server with ILO 
+    * 1 x HPE OneView connected to the network.
     * 1 x Red Hat Ansible Tower (Controller) instance with valid subscription to manage the environment.
     * 1 x bastion host that has an nginx/httpd running
 
@@ -20,7 +20,7 @@ In order to achieve this we will need work from an existing repository that will
 <br>
 ### Step 1: Create Github Credentials
 
-These credentials are needed to work on your Github account in order to download repository. If your project is public, you won't need to specify any credentials.
+These credentials are needed to work on your Github account in order to download the repository. If your project is public, you won't need to specify any credentials.
 
 ![Create Github Credentials](/images/create-github-creds.png)
 
@@ -34,7 +34,7 @@ Navigate to **Projects** in Tower UI, create a **New Project** :
 * NAME : HPE OneView Workshop
 * Organization : Default
 * SCM TYPE : Git
-* SCM URL :[https://github.com/mschreie/hpe_oneview_ansible_workshop.git](https://github.com/<YOUR_NICKNAME>/hpe_oneview_ansible_workshop.git)
+* SCM URL : https://github.com/<YOUR_NICKNAME>/hpe_oneview_ansible_workshop.git
 * Tick : CLEAN, DELETE ON UPDATE, UPDATE REVISION ON LAUNCH
 * SCM Credentials : YOUR GITHUB CREDENTIALS
 * Ansible Environment : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md))
@@ -49,7 +49,7 @@ hpe_oneview_get_enclosures_facts.yml
 <br>
 ### Step 3 : Create Credentials Type:
 
-In order to authenticate to the enclosure, we will need Create a new credentials specifically for HPE OneView. Since HPE OneView is not listed in the Credentials types available by default in Ansible Tower (Controller), we will need to create a new type.
+In order to authenticate to the enclosure, we will need to create a new credential specifically for HPE OneView. Since HPE OneView is not listed in the Credential types available by default in Ansible Tower (Controller), we will need to create a new type first.
 
 1. Navigate to Credentials Types
 2. Create a New Credential Type
@@ -88,9 +88,9 @@ extra_vars:
   oneview_username: '{{ username }}'
 ```
 <br>
-### Step 4 : Create HPE OneView Credentials
+### Step 4 : Create HPE OneView Credential
 
-One the new Credentials type is added, we can create HPE OneView Credentials to be use
+As soon as the new Credential type is added, we can create the HPE OneView Credential to be used later.
 
 ![Create_One_View Credentials](/images/create-oneview-creds.png)
 
@@ -102,9 +102,9 @@ One the new Credentials type is added, we can create HPE OneView Credentials to 
 * HPE ONEVIEW DOMAIN : your_domain or local
 * HPE ONEVIEW API VERSION : 2800 or later
 <br>
-### Step 5 : Create HPE OneView Inventory
+### Step 5 : Create HPE OneView Inventory I
 
-Every Job Template will require an inventory of managed hosts on which it will run. In this case, we are looking to automate HPE OneView servers but the automation will run locally from Ansible Tower (Controller) as it consists of API call. So, we will create an inventory that working.
+Every Job Template will require an inventory of managed hosts on which it will run. In this case, we are looking to automate HPE servers but the automation will run locally on Ansible Tower (Controller) and will only reach out to OneView via API calls. So, for simple "hello world" like testing we create an inventory with oneview host as the one and only server.
 
 ![Create HPE OneView](/images/create-inv.png)
 
@@ -124,7 +124,7 @@ Now it's time to create the **Job Template** that will help to gather Facts from
 2. Create **New Job Template** using the parameters below:
 
 * NAME: "OneView :  Gather Enclosures Facts"
-* Inventory: ALL_ONEVIEW_SERVERS
+* Inventory: Oneview servers
 * Credentials : HPE OneView Credentials
 * Projects : HPE OneView Workshop
 * PLAYBOOK : hpe_oneview_get_enclosures_facts.yml
