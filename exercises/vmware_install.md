@@ -17,7 +17,8 @@ We already prepared somewhere else:
 * project
 
 
-# We prepared following playbooks which need to be integrated into Ansible Tower:
+# Available playbooks
+You find follwoing playbooks which need to be integrated into Ansible Tower:
 * vmware_iso_prep.yml
   This playbook takes the original ISO image unpacks it, creates a additional, tailored kickstart file, assures that this kickstart file is used by adding certain bootparameters to boot.cfg and repacks all this into a new iso-file which get's placed into the webserver directory.
 
