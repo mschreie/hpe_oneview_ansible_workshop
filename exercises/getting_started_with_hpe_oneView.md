@@ -34,14 +34,14 @@ Navigate to **Projects** in Tower UI, create a **New Project** :
 * NAME : HPE OneView Workshop
 * Organization : Default
 * SCM TYPE : Git
-* SCM URL :[https://github.com/mschreie/hpe_oneview_ansible_workshop.git](https://github.com/mschreie/hpe_oneview_ansible_workshop.git)
+* SCM URL :[https://github.com/mschreie/hpe_oneview_ansible_workshop.git](https://github.com/<YOUR_NICKNAME>/hpe_oneview_ansible_workshop.git)
 * Tick : CLEAN, DELETE ON UPDATE, UPDATE REVISION ON LAUNCH
 * SCM Credentials : <YOUR GITHUB CREDENTIALS>
 
 
-In this section, The playbook needed is called :  ```hpe_oneview_get_enclosures_facts.yml```
+In this section, The playbook needed is called :  hpe_oneview_get_enclosures_facts.yml
 
-### Step 3: Create Credentials Type:
+### Step 3 : Create Credentials Type:
 
 In order to authenticate to the enclosure, we will need Create a new credentials specifically for HPE OneView. Since HPE OneView is not listed in the Credentials types available by default in Ansible Tower (Controller), we will need to create a new type.
 
@@ -50,7 +50,7 @@ In order to authenticate to the enclosure, we will need Create a new credentials
 
 ![Create-Cred-Type](/images/create-creds-type.png)
 
-*NAME** : HPE Oneview Credentials
+* NAME : HPE Oneview Credentials
 * INPUT CONFIGURATION :
 ```
 fields:
@@ -81,3 +81,10 @@ extra_vars:
   oneview_password: '{{ password }}'
   oneview_username: '{{ username }}'
 ```
+   
+### Step 4 : Create Job Template : Gather Facts
+   
+Now it's time to create the **Job Template** that will help to gather Facts from Enclosures. You can consider this job template as a "Hello World" example. It will help validate the integration points between Ansible Tower (Controller) and HPE OneView.
+ 
+   [Create Job Template]create-enclo-job-template.png
+   
