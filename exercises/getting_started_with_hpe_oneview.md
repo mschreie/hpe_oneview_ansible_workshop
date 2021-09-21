@@ -1,4 +1,4 @@
-# Automating HPE OneView
+# Getting Started with HPE OneView
 
 ## Introduction
 
@@ -17,14 +17,14 @@ This exercise is going to assume the prerequisites below are all met:
 In this exercise, we will integrate for the first time with HPE OneView. As a first playbook we will start by gathering some facts from the Enclosure.
 In order to achieve this we will need work from an existing repository that will host all the playbooks needed over the course of this workshop.
 
-
+<br>
 ### Step 1: Create Github Credentials
 
 These credentials are needed to work on your Github account in order to download repository. If your project is public, you won't need to specify any credentials.
 
 ![Create Github Credentials](/images/create-github-creds.png)
 
-
+<br>
 ### Step 2: Create Project
 
 Navigate to **Projects** in Tower UI, create a **New Project** :
@@ -37,11 +37,16 @@ Navigate to **Projects** in Tower UI, create a **New Project** :
 * SCM URL :[https://github.com/mschreie/hpe_oneview_ansible_workshop.git](https://github.com/<YOUR_NICKNAME>/hpe_oneview_ansible_workshop.git)
 * Tick : CLEAN, DELETE ON UPDATE, UPDATE REVISION ON LAUNCH
 * SCM Credentials : YOUR GITHUB CREDENTIALS
-* Ansible Environment : /var/lib/awx/venv/oneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md))
+* Ansible Environment : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md))
 
 
-In this section, The playbook needed is called :  hpe_oneview_get_enclosures_facts.yml
+In this section, The playbook needed is called :
 
+```
+hpe_oneview_get_enclosures_facts.yml
+```
+
+<br>
 ### Step 3 : Create Credentials Type:
 
 In order to authenticate to the enclosure, we will need Create a new credentials specifically for HPE OneView. Since HPE OneView is not listed in the Credentials types available by default in Ansible Tower (Controller), we will need to create a new type.
@@ -82,7 +87,7 @@ extra_vars:
   oneview_password: '{{ password }}'
   oneview_username: '{{ username }}'
 ```
-
+<br>
 ### Step 4 : Create HPE OneView Credentials
 
 One the new Credentials type is added, we can create HPE OneView Credentials to be use
@@ -96,13 +101,19 @@ One the new Credentials type is added, we can create HPE OneView Credentials to 
 * HPE ONEVIEW PASSWORD : YOUR_HPE_ONEVIEW_ADMIN_PASSWD
 * HPE ONEVIEW DOMAIN : your_domain or local
 * HPE ONEVIEW API VERSION : 2800 or later
-
+<br>
 ### Step 5 : Create HPE OneView Inventory
 
 Every Job Template will require an inventory of managed hosts on which it will run. In this case, we are looking to automate HPE OneView servers but the automation will run locally from Ansible Tower (Controller) as it consists of API call. So, we will create an inventory that working.
 
 ![Create HPE OneView](/images/create-inv.png)
 
+1. Navigate to **Inventories**
+2. Create **New Inventory**
+* Name : Oneview Server
+* Hosts: LIST_ALL_HP_ONEVIEW_IP
+
+<br>
 ### Step 6 : Create Job Template : Gather Enclosures Facts
    
 Now it's time to create the **Job Template** that will help to gather Facts from Enclosures. You can consider this job template as a "Hello World" example. It will help validate the integration points between Ansible Tower (Controller) and HPE OneView.
@@ -115,4 +126,20 @@ Now it's time to create the **Job Template** that will help to gather Facts from
 * NAME: "OneView :  Gather Enclosures Facts"
 * Inventory: ALL_ONEVIEW_SERVERS
 * Credentials : HPE OneView Credentials
-* Projects
+* Projects : HPE OneView Workshop
+* PLAYBOOK : hpe_oneview_get_enclosures_facts.yml
+* VIRTUAL ENVIRONMENT : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md))
+
+Then Add a survey that will store the defaut value :
+
+* oneview_hostname: IP ADDR OF HPE ONEVIEW
+<br>
+### Step 7 : Launch the job template
+
+* Click on the little rocket
+* Provide OneView Variable as a survey : IP_ADDRESS_ONEVIEW
+
+
+## Conclusion
+
+With this, we managed to run our first playbook on Ansible Tower (Controller) and integrate with HPE Oneview.
