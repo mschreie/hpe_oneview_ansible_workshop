@@ -1,3 +1,5 @@
+# Git CheatSheet
+
 Simple documentation about the most rudimentary tasks
 
 To work with git you need a rudimentary understanding of what git does and how it works.
