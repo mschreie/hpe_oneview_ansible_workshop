@@ -32,20 +32,23 @@ All the prepared playbooks rely on
 * inventory/hosts file, which needs to be adopted to your environment. Don't change the names for bastion_host, oneview_host or esxi_hosts. the playbooks rely on these names.
 * group_vars/all/vars.yml file, which also nees to be adopted to your setup.
 After local change of these files do not forget to swicht to the root-directory of the repository and:
+
 '''
 git add .
 git commit -m "some meaningful explanation"
 git push
 '''
+
 see git documentation elsewhere in this repo
 
 ## Credentials Needed
+We need the following 3 credentials, which we will create in the following paragraphs.
 
 ### Machine Credential
-We execute the iso preparation on the bastion host, therefore we need to asure to have machine credentials which work for the bastion host and also allow to become root.
+To execute the iso preparation on the bastion host, we need to asure to have machine credentials which work for the bastion host and also allow to become root.
 
 ### ESXi root user credential
-We inject the later root password into the kickstart file. As this injection use case is not related to "machine credentials" we once again need a custom credential type.
+We inject the later ESXi root password into the kickstart file. As this injection use case is not related to "machine credentials" we once again need a custom credential type.
 
 ### ILO credential
 We need to reach out to ILO and need a ILO Credential. Similar to the HPE Oneview credential this will be a custom credential type
@@ -61,6 +64,7 @@ In Tower (Controller) UI
 
 ![Create-Cred-Type](/images/create-creds-type.png)
 
+### HPE ILO Credentials
 * NAME : HPE ILO Credentials
 * INPUT CONFIGURATION :
 ```
@@ -80,8 +84,7 @@ extra_vars:
   ilo_username: '{{ username }}'
 ```
    
-And as a second credential type:
-
+### ESXi root user credential type
 * NAME : ESXi root user credential type
 * INPUT CONFIGURATION :
 ```
@@ -102,7 +105,7 @@ extra_vars:
 ```
 
 ## Creating the credentials
-As outlined above we need three different credentials we will now create:
+Having all credential types needed in place now we can create needed credentials:
 
 In Tower (Controller) UI 
 1. Navigate to Credentials 
