@@ -38,11 +38,18 @@ Authenticating Ansible Tower requires a token. It can be achieved using the step
 ![Copy_Token](/images/copy-token.png)
 
 
-Using authentication token as user admin, navigate to the **Settings > Jobs** <br>
+Using authentication token as user admin, navigate to the **Credentials > New Credentials** as follows <br>
 
-Set PRIMARY GALAXY SERVER URL to https://cloud.redhat.com/api/automation-hub/ <br>
-Set PRIMARY GALAXY AUTHENTICATION URL to https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token <br>
-Set PRIMARY GALAXY SERVER TOKEN to <COPIED_TOKEN><br>
+![Use_Token](/images/save-token.png)
+
+
+As soon as you create the Automation Hub credentials, it is time to attached these credentials to the right organization
+Navigate to the **Organizations > Default** as follows <br>
+
+** Please make sure to attache Automation Hub Credentials, then Ansible Galaxy credentials to set the precedence where to look for Ansible Content Collections.**
+
+
+![Attach_Token](/images/attach-token.png)
 
 ## Step 2: Virtual Environment
 
