@@ -37,6 +37,7 @@ In order to authenticate to the enclosure, we will need Create a new credentials
 ![Create-Cred-Type](/images/create-creds-type.png)
 
 **NAME** : HPE Oneview Credentials
+
 **INPUT CONFIGURATION** :
 
 ```
@@ -60,6 +61,7 @@ required:
   - domain
   - api_version
 ```
+
 **INJECTOR CONFIGURATION**:
 
 ```
