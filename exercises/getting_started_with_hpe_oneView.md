@@ -36,7 +36,8 @@ Navigate to **Projects** in Tower UI, create a **New Project** :
 * SCM TYPE : Git
 * SCM URL :[https://github.com/mschreie/hpe_oneview_ansible_workshop.git](https://github.com/<YOUR_NICKNAME>/hpe_oneview_ansible_workshop.git)
 * Tick : CLEAN, DELETE ON UPDATE, UPDATE REVISION ON LAUNCH
-* SCM Credentials : <YOUR GITHUB CREDENTIALS>
+* SCM Credentials : YOUR GITHUB CREDENTIALS
+* Ansible Environment : /var/lib/awx/venv/oneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md))
 
 
 In this section, The playbook needed is called :  hpe_oneview_get_enclosures_facts.yml
