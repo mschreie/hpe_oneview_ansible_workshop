@@ -18,7 +18,14 @@ In this exercise, we will integrate for the first time with HPE OneView. As a fi
 In order to achieve this we will need work from an existing repository that will host all the playbooks needed over the course of this workshop.
 
 
-### Step 1: Create Project
+### Step 1: Create Github Credentials
+
+These credentials are needed to work on your Github account in order to download repository. If your project is public, you won't need to specify any credentials.
+
+![Create Github Credentials](/images/create-github-creds.png)
+
+
+### Step 2: Create Project
 
 Navigate to **Projects** in Tower UI, create a **New Project** :
 
@@ -29,12 +36,12 @@ Navigate to **Projects** in Tower UI, create a **New Project** :
 * SCM TYPE : Git
 * SCM URL :[https://github.com/mschreie/hpe_oneview_ansible_workshop.git](https://github.com/mschreie/hpe_oneview_ansible_workshop.git)
 * Tick : CLEAN, DELETE ON UPDATE, UPDATE REVISION ON LAUNCH
-* SCM Credentials : <YOUR GITHUB Credentials>
+* SCM Credentials : <YOUR GITHUB CREDENTIALS>
 
 
 In this section, The playbook needed is called :  ```hpe_oneview_get_enclosures_facts.yml```
 
-### Step 2: Create Credentials Type:
+### Step 3: Create Credentials Type:
 
 In order to authenticate to the enclosure, we will need Create a new credentials specifically for HPE OneView. Since HPE OneView is not listed in the Credentials types available by default in Ansible Tower (Controller), we will need to create a new type.
 
