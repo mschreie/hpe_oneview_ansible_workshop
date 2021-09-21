@@ -28,4 +28,40 @@ The storage volume should be rated for a minimum baseline of 750 IOPS:
 * PostgreSQL version 10 required to run Ansible Tower
 * Ansible version 2.9 required to run Ansible Tower
 
+### Download Ansible Tower:
 
+Access the latest version of the bundled Ansible Automation Platform installation program directly from https://access.redhat.com/downloads/content/480 (note, you must have a Red Hat customer account to access the downloads).
+
+Make sure to pick the bundle installer :
+
+```
+ansible-tower-setup-bundle-latest.tar.gz
+root@localhost:~$ tar xvzf ansible-tower-setup-latest.tar.gz
+
+```
+Make sure to copy this installer under /root of the Ansible Tower Instance.
+
+### Configure Inventory to setup Ansible Tower
+
+1. Single Machine:
+
+Standalone Tower with database on the same node as Tower or non-installer managed database. This is a single machine install of Tower - the web frontend, REST API backend, and database are all on a single machine. This is the standard installation of Tower. It also installs PostgreSQL from your OS vendor repository, and configures the Tower service to use that as its database. 
+
+An exemple of the invetory file post installation.
+
+```
+[tower]
+localhost ansible_connection=local
+
+[database]
+
+[all:vars]
+admin_password='password'
+
+pg_host=''
+pg_port=''
+
+pg_database='awx'
+pg_username='awx'
+pg_password='password'
+```
