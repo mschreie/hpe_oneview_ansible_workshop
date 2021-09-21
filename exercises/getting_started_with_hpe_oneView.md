@@ -82,10 +82,24 @@ extra_vars:
   oneview_password: '{{ password }}'
   oneview_username: '{{ username }}'
 ```
-   
-### Step 4 : Create Job Template : Gather Facts
+
+### Step 4 : Create HPE OneView Credentials
+
+One the new Credentials type is added, we can create HPE OneView Credentials to be use
+
+![Create_One_View Credentials](/images/create-oneview-creds.png)
+
+### Step 5 : Create Job Template : Gather Facts
    
 Now it's time to create the **Job Template** that will help to gather Facts from Enclosures. You can consider this job template as a "Hello World" example. It will help validate the integration points between Ansible Tower (Controller) and HPE OneView.
  
-   [Create Job Template]create-enclo-job-template.png
-   
+   [Create Job Template](/images/create-enclo-job-template.png)
+
+
+1. Navigate to Templates
+2. Create **New Job Template** using the parameters below:
+
+* NAME: "OneView :  Gather Enclosures Facts"
+* Inventory: ALL_ONEVIEW_SERVERS
+* Credentials : HPE OneView Credentials
+* Projects
