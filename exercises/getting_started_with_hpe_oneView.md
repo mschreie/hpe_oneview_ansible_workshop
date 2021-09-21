@@ -89,12 +89,25 @@ One the new Credentials type is added, we can create HPE OneView Credentials to 
 
 ![Create_One_View Credentials](/images/create-oneview-creds.png)
 
-### Step 5 : Create Job Template : Gather Facts
+
+* NAME : HPE Oneview creds
+* CREDENTIAL TYPE : HPE Oneview Credentials
+* HPE ONEVIEW USERNAME : YOUR_HPE_ONEVIEW_ADMIN
+* HPE ONEVIEW PASSWORD : YOUR_HPE_ONEVIEW_ADMIN_PASSWD
+* HPE ONEVIEW DOMAIN : your_domain or local
+* HPE ONEVIEW API VERSION : 2800 or later
+
+### Step 5 : Create HPE OneView Inventory
+
+Every Job Template will require an inventory of managed hosts on which it will run. In this case, we are looking to automate HPE OneView servers but the automation will run locally from Ansible Tower (Controller) as it consists of API call. So, we will create an inventory that working.
+
+![Create HPE OneView](/images/create-inv.png)
+
+### Step 6 : Create Job Template : Gather Enclosures Facts
    
 Now it's time to create the **Job Template** that will help to gather Facts from Enclosures. You can consider this job template as a "Hello World" example. It will help validate the integration points between Ansible Tower (Controller) and HPE OneView.
  
-   [Create Job Template](/images/create-enclo-job-template.png)
-
+![Create Job Template](/images/create-enclo-job-template.png)
 
 1. Navigate to Templates
 2. Create **New Job Template** using the parameters below:
