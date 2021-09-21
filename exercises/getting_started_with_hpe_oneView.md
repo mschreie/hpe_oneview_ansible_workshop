@@ -1,4 +1,4 @@
-# Automating HPE OneView
+# Getting Started with HPE OneView
 
 ## Introduction
 
@@ -140,4 +140,6 @@ Then Add a survey that will store the defaut value :
 * Provide OneView Variable as a survey : IP_ADDRESS_ONEVIEW
 
 
+## Conclusion
 
+With this, we managed to run our first playbook on Ansible Tower (Controller) and integrate with HPE Oneview.
