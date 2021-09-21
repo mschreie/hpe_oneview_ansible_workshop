@@ -37,7 +37,7 @@ Navigate to **Projects** in Tower UI, create a **New Project** :
 * SCM URL :[https://github.com/mschreie/hpe_oneview_ansible_workshop.git](https://github.com/<YOUR_NICKNAME>/hpe_oneview_ansible_workshop.git)
 * Tick : CLEAN, DELETE ON UPDATE, UPDATE REVISION ON LAUNCH
 * SCM Credentials : YOUR GITHUB CREDENTIALS
-* Ansible Environment : /var/lib/awx/venv/oneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md))
+* Ansible Environment : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md))
 
 
 In this section, The playbook needed is called :
@@ -126,4 +126,18 @@ Now it's time to create the **Job Template** that will help to gather Facts from
 * NAME: "OneView :  Gather Enclosures Facts"
 * Inventory: ALL_ONEVIEW_SERVERS
 * Credentials : HPE OneView Credentials
-* Projects
+* Projects : HPE OneView Workshop
+* PLAYBOOK : hpe_oneview_get_enclosures_facts.yml
+* VIRTUAL ENVIRONMENT : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md))
+
+Then Add a survey that will store the defaut value :
+
+* oneview_hostname: IP ADDR OF HPE ONEVIEW
+<br>
+### Step 7 : Launch the job template
+
+* Click on the little rocket
+* Provide OneView Variable as a survey : IP_ADDRESS_ONEVIEW
+
+
+
