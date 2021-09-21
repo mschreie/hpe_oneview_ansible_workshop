@@ -17,5 +17,5 @@ After finishing this workshop you will be ready to start using Ansible for your 
 | **Exercice 1** : This a prerequisites that guides you to setup git and vscode on your windows laptop| [Code Editor and Git on Windows](./exercises/code_editor_and_git_on_windows.md) |
 | **Exercice 2** : This a prerequisites that guides you to create a branch of workshop repository| [Getting Started with Git](./exercises/git.md) |
 | **Exercice 3** : This helps to create your first virtual environement in tower| [Virtual Environment](./exercises/virtual_environment.md) |
-| **Exercice 4** : This excerice introduces how to automate HPE OneView with Ansible Tower (Controller)| [Getting Started with HPE OneView](./exercises/getting_started_with_hpe_oneView.md) |
+| **Exercice 4** : This excerice introduces how to automate HPE OneView with Ansible Tower (Controller)| [Getting Started with HPE OneView](./exercises/getting_started_with_hpe_oneiiew.md) |
 
