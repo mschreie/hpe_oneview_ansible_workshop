@@ -1,0 +1,58 @@
+---
+## Prepare bastion host
+## run this best from cmd-line like this
+##   ansible-playbook -i invetory/hosts --ask-pass prep_bastion_host.yml
+##   this will ask for root password of bastion host
+
+
+- hosts: bastion_host
+  gather_facts: no
+  ansible_user: root
+
+  vars:
+    # derived via htpasswd  -cB /tmp/xx root
+    password: "$6$BFpZ2bb9.RsgULe9$s83ZlFRYHjTCb33oGou66OyVnYNQcIrFjWtxY6NH6At.zgJHivuOyEx1ZhwrCEpa/inFE4eplsB98bVyxNzZa."
+
+  tasks:
+   - name: Install packages needed
+     yum:
+       name: {{ item }}
+       loop:
+         - httpd
+         - genisoimage
+
+   - name: start httpd
+     service:
+       name: httpd
+       state: started
+       enabled: true
+
+   - name: assure destination directory to be in place
+     file: 
+       path: "{{ bastion_iso_dir }}"
+       state: directory
+       modification_time: preserve
+       access_time: preserve
+     become: true
+
+   - name: permit traffic in default zone for http service
+     ansible.posix.firewalld:
+       service: http
+       permanent: yes
+       state: enabled
+
+   - name: Add Ansible user 'ansible', include to group wheel
+     user:
+       name: ansible
+       groups: wheel
+       password: "{{ passowrd }}"
+       append: yes
+       state: present
+
+  - name: Change to passwordless sudo 
+    lineinfile:
+      path: /etc/sudoers
+      state: present
+      regexp: '^%wheel'
+      line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+      validate: 'visudo -cf %s'
