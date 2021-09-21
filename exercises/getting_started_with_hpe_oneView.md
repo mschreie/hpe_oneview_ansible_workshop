@@ -50,10 +50,8 @@ In order to authenticate to the enclosure, we will need Create a new credentials
 
 ![Create-Cred-Type](/images/create-creds-type.png)
 
-**NAME** : HPE Oneview Credentials
-
-**INPUT CONFIGURATION** :
-
+*NAME** : HPE Oneview Credentials
+* INPUT CONFIGURATION :
 ```
 fields:
   - id: username
@@ -75,9 +73,7 @@ required:
   - domain
   - api_version
 ```
-
-**INJECTOR CONFIGURATION**:
-
+* INJECTOR CONFIGURATION :
 ```
 extra_vars:
   oneview_apiversion: '{{ api_version }}'
