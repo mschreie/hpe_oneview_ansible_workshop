@@ -18,15 +18,54 @@ In this exercise, we will integrate for the first time with HPE OneView. As a fi
 
 In order to achieve this we will need to:
 
-Create Project from the git repository below, it will host all the playbooks we will need over the course of this workshop.
+### Step 1: Create Project
+
+Navigate to **Projects** in Tower UI, create a **New Project**  from the git repository below:
 : [https://github.com/mschreie/hpe_oneview_ansible_workshop.git](https://github.com/mschreie/hpe_oneview_ansible_workshop.git)
 
-The playbook needed in this section is called :  hpe_oneview_get_enclosures_facts.yml
+* This repository will host all the playbooks we will need over the course of this workshop.
 
-In order to authenticate to the enclosure, we will need Create a new credentials specifically for HPE OneView.
-Since HPE OneView is not listed in the Credentials types available by default in Ansible Tower (Controller), we will need to create a new type.
+In this section, The playbook needed is called :  ```hpe_oneview_get_enclosures_facts.yml```
 
+### Step 2: Create Credentials Type:
 
-Step 1:
-Navigate to Credentials Types
-Create a New Credential Type 
+In order to authenticate to the enclosure, we will need Create a new credentials specifically for HPE OneView. Since HPE OneView is not listed in the Credentials types available by default in Ansible Tower (Controller), we will need to create a new type.
+
+1. Navigate to Credentials Types
+2. Create a New Credential Type
+
+![Create-Cred-Type](/images/create-creds-type.png)
+
+**NAME** : HPE Oneview Credentials
+**INPUT CONFIGURATION** :
+
+```
+fields:
+  - id: username
+    type: string
+    label: HPE Oneview username
+  - id: password
+    type: string
+    label: HPE Oneview password
+    secret: true
+  - id: domain
+    type: string
+    label: HPE Oneview Domain
+  - id: api_version
+    type: string
+    label: HPE Oneview Api version
+required:
+  - username
+  - password
+  - domain
+  - api_version
+```
+**INJECTOR CONFIGURATION**:
+
+```
+extra_vars:
+  oneview_apiversion: '{{ api_version }}'
+  oneview_domain: '{{ domain }}'
+  oneview_password: '{{ password }}'
+  oneview_username: '{{ username }}'
+```
