@@ -9,7 +9,9 @@ In order to achieve this we need:
 * root priviledges to that http-server as we want to loop mount iso-images
 * a VMware installation iso residing on that http-server
 * A server to install onto
-* This server needs to have ILO in place
+* This server needs to have ILO in place, which can mount and boot from the iso
+
+HINT: connecting an http-accessible file as CDROM image in ILO always seems successfull, independent of the existence of the file or reachability of the webserver. We suggest to first try to mount unalterd VMware iso installation image manualy and boot via one-time boot options from this device. Only if the manual boot into untampered install iso is working, an automated approach will be successful.
 
 ## Prerequisits in Tower
 We already prepared somewhere else:
@@ -18,19 +20,23 @@ We already prepared somewhere else:
 
 
 ## Available playbooks
-You find follwoing playbooks which need to be integrated into Ansible Tower:
-* vmware_iso_prep.yml
+You find following playbooks which need to be integrated into Ansible Tower:
+* vmware_iso_prep.yml <br>
   This playbook takes the original ISO image unpacks it, creates a additional, tailored kickstart file, assures that this kickstart file is used by adding certain bootparameters to boot.cfg and repacks all this into a new iso-file which get's placed into the webserver directory.
 
-* vmware_iso_boot.yml
+* vmware_iso_boot.yml <br>
   This playbook boots from the customized iso image by connecting it as CDrom via ILO.
-* vmware_iso_cleanup.yml
+
+* vmware_iso_cleanup.yml <br>
   This playbook cleans up some temporary files and directories created by vmware_iso_prep.yml. It helps assure you don't have any leftovers from older attempts in your newly created iso.
 
 ## Adjusting configuration files
 All the prepared playbooks rely on 
-* inventory/hosts file, which needs to be adopted to your environment. Don't change the names for bastion_host, oneview_host or esxi_hosts. the playbooks rely on these names.
-* group_vars/all/vars.yml file, which also nees to be adopted to your setup.
+* inventory/hosts <br>
+  file, which needs to be adopted to your environment. Don't change the names for bastion_host, oneview_host or esxi_hosts. the playbooks rely on these names.
+* group_vars/all/vars.yml <br>
+  file, which also nees to be adopted to your setup.
+
 After local change of these files do not forget to swicht to the root-directory of the repository and:
 
 '''
