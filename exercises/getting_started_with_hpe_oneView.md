@@ -15,15 +15,22 @@ This exercise is going to assume the prerequisites below are all met:
 
 
 In this exercise, we will integrate for the first time with HPE OneView. As a first playbook we will start by gathering some facts from the Enclosure.
+In order to achieve this we will need work from an existing repository that will host all the playbooks needed over the course of this workshop.
 
-In order to achieve this we will need to:
 
 ### Step 1: Create Project
 
-Navigate to **Projects** in Tower UI, create a **New Project**  from the git repository below:
-: [https://github.com/mschreie/hpe_oneview_ansible_workshop.git](https://github.com/mschreie/hpe_oneview_ansible_workshop.git)
+Navigate to **Projects** in Tower UI, create a **New Project** :
 
-* This repository will host all the playbooks we will need over the course of this workshop.
+![Create-Prj](/images/create-prj.png)
+
+* NAME : HPE OneView Workshop
+* Organization : Default
+* SCM TYPE : Git
+* SCM URL :[https://github.com/mschreie/hpe_oneview_ansible_workshop.git](https://github.com/mschreie/hpe_oneview_ansible_workshop.git)
+* Tick : CLEAN, DELETE ON UPDATE, UPDATE REVISION ON LAUNCH
+* SCM Credentials : <YOUR GITHUB Credentials>
+
 
 In this section, The playbook needed is called :  ```hpe_oneview_get_enclosures_facts.yml```
 
