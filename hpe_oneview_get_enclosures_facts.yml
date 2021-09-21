@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  gather_facts: true
+
+  tasks:
+     
+    - name: Gather facts about all Enclosures
+      hpe.oneview.oneview_enclosure_facts:
+        hostname: "{{ oneview_hostname }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+      delegate_to: localhost
+
+    - debug: var=enclosures
+
