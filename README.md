@@ -18,4 +18,5 @@ After finishing this workshop you will be ready to start using Ansible for your 
 | **Exercice 2** : This a prerequisites that guides you to create a branch of workshop repository| [Getting Started with Git](./exercises/git.md) |
 | **Exercice 3** : This helps to create your first virtual environement in tower| [Virtual Environment](./exercises/virtual_environment.md) |
 | **Exercice 4** : This excerice introduces how to automate HPE OneView with Ansible Tower (Controller)| [Getting Started with HPE OneView](./exercises/getting_started_with_hpe_oneview.md) |
-| **Exercice 5** : This excerice helps to automate deploying ESXi with Ansible Tower (Controller)| [VMware ESXi Automated Deployment](./exercises/vmware_install.md) 
+| **Exercice 5** : This excerice automates HW manipulation via  HPE OneView with Ansible Tower (Controller)| [Automationg HPE OneView to manipulate Server Configuration](./exercises/oneview_server_config.md) |
+| **Exercice 6** : This excerice helps to automate deploying ESXi with Ansible Tower (Controller)| [VMware ESXi Automated Deployment](./exercises/vmware_install.md) 
