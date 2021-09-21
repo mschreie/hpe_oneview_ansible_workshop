@@ -1,3 +1,7 @@
+# Prepare Bastion Host
+
+As it is best practice to not mess arround with the Tower Server itself, we set up an additional server where we can run things as root, can install additiona SW easily and can run a web-server without interfearing with Tower web interface.
+
 In order for the bastion host to be prepared it needs:
 1* RHEL installed (see document prerequisite)
 2* http server prepared
@@ -23,6 +27,7 @@ change into the directoy the cloning created
 and run the playbook by asking for the root password of the basiton host
 
 On the host itself we assure the following (via the playbook):
+Hint: Do not run the following commands, when you have already executed the playbook.
 
 '''
 # yum install -y httpd
