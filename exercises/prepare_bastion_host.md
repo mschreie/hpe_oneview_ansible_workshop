@@ -1,11 +1,16 @@
 In order for the bastion host to be prepared it needs:
-* RHEL installed (see document prerequisite)
-* http server prepared
-* ansible user prepared
-* cmd genisoimage available
+1* RHEL installed (see document prerequisite)
+2* http server prepared
+3* ansible user prepared
+4* cmd genisoimage available
+5* VMware ESXi installer image available
 
-For ease of preparation we created a playbook, which is expected to be run from cmd-line at the Tower server: 
+For ease of preparation we created a playbook, which is expected to be run from cmd-line at the Tower server. It automates steps 2, 3 and 4.
 
+## Install RHEL
+This is explained in the prerequisite.md
+
+## Prepare Bastion Host (steps 2 to 4)
 '''
 su - awx
 git clone <your git repository>
@@ -17,8 +22,9 @@ clone your repository
 change into the directoy the cloning created
 and run the playbook by asking for the root password of the basiton host
 
-On th host itself we assure the following (via the playbook):
+On the host itself we assure the following (via the playbook):
 
+'''
 # yum install -y httpd
 # systemctl enable httpd
 # systemctl start httpd
@@ -33,4 +39,19 @@ On th host itself we assure the following (via the playbook):
 ## Allows people in group wheel to run all commands
 #%wheel	ALL=(ALL)	ALL
 %wheel	ALL=(ALL)	NOPASSWD: ALL
+'''
 
+## VMware ESXi installer image available
+The ESXi installer images need to be put onto the bastion host at 
+/var/www/html/isos/
+you can use wget on the bastion host itself to download
+'''
+cd /var/www/html/isos
+wget https://someplace/to/fetch/iso/from
+'''
+
+or you can scp the file to the bastion host 
+
+'''
+scp file.iso root@ipofbastionhost:/var/www/html/isos/
+'''

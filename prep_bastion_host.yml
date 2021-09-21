@@ -20,6 +20,7 @@
        loop:
          - httpd
          - genisoimage
+         - wget
 
    - name: start httpd
      service:
@@ -56,3 +57,12 @@
       regexp: '^%wheel'
       line: '%wheel ALL=(ALL) NOPASSWD: ALL'
       validate: 'visudo -cf %s'
+
+   - name: assure destination directory to be in place
+     file: 
+       path: /var/www/html/isos
+       state: directory
+       modification_time: preserve
+       access_time: preserve
+     become: true
+

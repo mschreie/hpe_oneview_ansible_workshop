@@ -144,5 +144,8 @@ To deactive the virtual environment, you can run the command deactivate:
 
 ```
 
+Use Environment in Tower:
+When creating a Job-Templte in Tower you can choose which virtual environment to use there.
+
 Further details about Virtual Environment for Red Hat Ansible Tower (Controller) can be found in this link :
 https://docs.ansible.com/ansible-tower/latest/html/upgrade-migration-guide/virtualenv.html
