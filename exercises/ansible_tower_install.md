@@ -65,3 +65,10 @@ pg_database='awx'
 pg_username='awx'
 pg_password='password'
 ```
+### Run Ansible Tower Installer
+
+The Tower setup playbook script uses the inventory file and is invoked as ./setup.sh from the path where you unpacked the Tower installer tarball.
+
+```
+root@localhost:~$ ./setup.sh
+```
