@@ -40,7 +40,11 @@ Navigate to **Projects** in Tower UI, create a **New Project** :
 * Ansible Environment : /var/lib/awx/venv/oneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md))
 
 
-In this section, The playbook needed is called :  hpe_oneview_get_enclosures_facts.yml
+In this section, The playbook needed is called :
+
+```
+hpe_oneview_get_enclosures_facts.yml
+```
 
 <br>
 ### Step 3 : Create Credentials Type:
