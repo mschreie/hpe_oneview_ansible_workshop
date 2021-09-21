@@ -28,7 +28,7 @@ hpe_oneview_deploy_srv_prof.yml
 In the previous exersice we used a very simple approach on inventories. Naming the Oneview Host as the target in the play-header does not allow to scale tasks, when multiple Servers should be deployed.
 Furthermore we add additional data into the inventory:
 
-'''
+```
 localhost    ansible_connection=local
 bastion_host ansible_host=10.6.80.25
 oneview_host ansible_host=composer.synergy.hybridit.hpecic.net
@@ -36,7 +36,7 @@ oneview_host ansible_host=composer.synergy.hybridit.hpecic.net
 [esx_hosts]
 esx1    ansible_host="1.2.3.4"   ov_hardware="Demo1_Rack12_Frame3, bay 5" ilo_ip=2.3.4.4
 esx2    ansible_host="1.2.3.5"   ov_hardware="Demo1_Rack12_Frame3, bay 6" ilo_ip=2.3.4.5
-'''
+```
 
 For ease of use this inventory resides within github and we create an Ansible Tower inventory which syncs data form there.
 
@@ -44,29 +44,30 @@ For ease of use this inventory resides within github and we create an Ansible To
 ![Create HPE OneView](/images/create-inv.png)
 
 1. Navigate to **Inventories**
-2. Create **New Inventory**
+2. Create **New Inventory** (don't choose *Smart Inventory*)
 * NAME : Workshop Inventory from GitHub
 * ORGANIZATION: Default
+
 click *Save* *SOURCES* *+* 
 
 This brings you to "CREATE SOURCE" page
-* NAME : Inventory file from Github
-* SOURCE : Sourced from a Project
+* NAME                : Inventory file from Github
+* SOURCE              : Sourced from a Project
 * ANSIBLE ENVIRONMENT : Use Default Environment
-* PROJECT : HPE OneView Workshp
-* INVENTORY FILE : inventory/hosts
-* VERBOSITY : 1 
-UPDATE OPTIONS:
-choose all update options:
-OVERWRITE
-OVERWRITE VARIABLES
-UPDATE ON LAUNCH
-UPDATE OM PROJECT UPDATE
+* PROJECT             : HPE OneView Workshp
+* INVENTORY FILE      : inventory/hosts
+* VERBOSITY           : 1 
+UPDATE OPTIONS: <br>
+choose all update options: <br>
+OVERWRITE; 
+OVERWRITE VARIABLES; 
+UPDATE ON LAUNCH; 
+UPDATE OM PROJECT UPDATE; 
 
 <br>
 ### Step 2 : Create Job Templates
    
-Now it's time to create the **Job Templates** . 
+Now it's time to create the **Job Templates**. 
  
 ![Create Job Template](/images/create-enclo-job-template.png)
 
@@ -100,7 +101,7 @@ We do not need privilege escalation or any other option.
 
 
 <br>
-### Step 7 : Launch the job templates
+### Step 3 : Launch the job templates
 
 * Click on the little rocket next to the Job templates
 * Review output in the log window
