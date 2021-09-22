@@ -78,23 +78,23 @@ This Job Template will use a very blunt Playbook which creates a Server Profile 
 In a real world we would work with a Jinja2-Template which gets customized with parameters instead of hardcoding everything into the playbook directly. But for this to be feasable we need to agree jointly on some predefined structure.
 Take this playbooks as a "proof of concept" level.
 
-* NAME: OneView : Server Profile Template Creation
-* Inventory: Workshop Inventory from GitHub
-* Projects : HPE OneView Workshop
-* PLAYBOOK : hpe_oneview_create_srv_templ.yml
-* Credentials : HPE OneView Credentials; HPE ILO Credential
-* VIRTUAL ENVIRONMENT : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md))
+* **NAME**: OneView : Server Profile Template Creation
+* **Inventory**: Workshop Inventory from GitHub
+* **Projects**: HPE OneView Workshop
+* **PLAYBOOK** : hpe_oneview_create_srv_templ.yml
+* **Credentials** : HPE OneView Credentials; HPE ILO Credential
+* **VIRTUAL ENVIRONMENT** : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md)
 
 We do not need privilege escalation or any other option.
 
 #### Step 3 : OneView : Deploy Server Template
 
-* NAME: OneView : Deploy Server Template
-* Inventory: Workshop Inventory from GitHub
-* Projects : HPE OneView Workshop
-* PLAYBOOK : hpe_oneview_deploy_srv_prof.yml
-* Credentials : HPE OneView Credentials
-* VIRTUAL ENVIRONMENT : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md))
+* **NAME**: OneView : Deploy Server Template
+* **Inventory**: Workshop Inventory from GitHub
+* **Projects** : HPE OneView Workshop
+* **PLAYBOOK** : hpe_oneview_deploy_srv_prof.yml
+* **Credentials** : HPE OneView Credentials
+* **VIRTUAL ENVIRONMENT** : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md)
 
 We do not need privilege escalation or any other option.
 
@@ -102,6 +102,8 @@ We do not need privilege escalation or any other option.
 ### Step 4 : Launch the job templates
 
 * Click on the little rocket next to the Job templates
+     * First Start with : Server Profile Template Creation
+     * Once Successfull then you can launch : Deploy Server Template
 * Review output in the log window
 * Review in Oneview console what is happening 
 
