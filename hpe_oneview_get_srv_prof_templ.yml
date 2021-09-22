@@ -1,0 +1,19 @@
+---
+- hosts: esx_hosts
+  gather_facts: no
+
+  tasks:
+    - name: Get a server profile template
+      hpe.oneview.oneview_server_profile_template_facts:
+        hostname: "{{ hostvars.oneview_host.ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+        name: "{{ server_profile_template_name }}"
+
+    - name: Print out all facts about server profile template
+      debug: 
+        var: server_profile_templates
+
+

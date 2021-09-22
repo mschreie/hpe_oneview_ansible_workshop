@@ -1,0 +1,23 @@
+---
+- hosts: esx_hosts
+  gather_facts: false
+
+  tasks:
+    - name: Add a Server Hardware to Oneview
+      hpe.oneview.oneview_server_hardware:
+        hostname: "{{ oneview_hostname }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+
+        state: present
+        data:
+          hostname : "{{ilo_ip}}"
+          username : "admin"
+          password : "{{ilo_pw}}"
+          force : true
+          licensingIntent: "OneView"
+          configurationState: "Managed"
+      delegate_to: localhost
+      # ignore_errors: true

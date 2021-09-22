@@ -45,10 +45,10 @@ esxi_nameserver: 1.2.3.1
 esxi_domain: example.com
 
 # fixed WMware installation related vars:
+mnt_dir:  /esxi_cdrom_mount
+wrk_dir:  /esxi_cdrom
 ks_template: ks.cfg
 ks_dest: "{{ wrk_dir }}/ks.cfg"
 bootoption: "runweasel ks=cdrom:/KS.CFG"
 bootcfg_dest: "{{ wrk_dir }}/efi/boot/boot.cfg"
 bootcfg_dest2: "{{ wrk_dir }}/boot.cfg"
-mnt_dir:  /esxi_cdrom_mount
-wrk_dir:  /esxi_cdrom
