@@ -7,7 +7,6 @@
 
 - hosts: bastion_host
   gather_facts: no
-  ansible_user: root
 
   vars:
     # derived via htpasswd  -cB /tmp/xx root
@@ -16,11 +15,11 @@
   tasks:
    - name: Install packages needed
      yum:
-       name: {{ item }}
-       loop:
+       name: 
          - httpd
          - genisoimage
          - wget
+       state: latest
 
    - name: start httpd
      service:
@@ -37,7 +36,7 @@
      become: true
 
    - name: permit traffic in default zone for http service
-     ansible.posix.firewalld:
+     firewalld:
        service: http
        permanent: yes
        state: enabled
@@ -46,17 +45,17 @@
      user:
        name: ansible
        groups: wheel
-       password: "{{ passowrd }}"
+       password: "{{ password }}"
        append: yes
        state: present
 
-  - name: Change to passwordless sudo 
-    lineinfile:
-      path: /etc/sudoers
-      state: present
-      regexp: '^%wheel'
-      line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-      validate: 'visudo -cf %s'
+   - name: Change to passwordless sudo 
+     lineinfile:
+       path: /etc/sudoers
+       state: present
+       regexp: '^%wheel'
+       line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+       validate: 'visudo -cf %s'
 
    - name: assure destination directory to be in place
      file: 
