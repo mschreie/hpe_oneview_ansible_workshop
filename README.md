@@ -13,7 +13,7 @@ After finishing this workshop you will be ready to start using Ansible for your 
 
 | Topic   | Exercises  | 
 |---|---|
-| **Prerequisites** : This document will explain the prerequisits for this workshop| [Prerequisits](./exercises/prerequisite.md) |
+| **Prerequisites** : This document will explain the prerequisites for this workshop| [Prerequisites](./exercises/prerequisites.md) |
 | **Exercice 0** : This guide explains how to install Red Hat Ansible Tower (Controller)| [Ansible Tower Deployment](./exercises/ansible_tower_install.md) |
 | **Exercice 1** : This prerequisite guides you to setup git and vscode on your windows laptop| [Code Editor and Git on Windows](./exercises/code_editor_and_git_on_windows.md) |
 | **Exercice 2** : This prerequisites guides you to create a fork of the provided workshop repository| [Getting Started with Git](./exercises/git.md) |
