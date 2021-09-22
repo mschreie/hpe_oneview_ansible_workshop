@@ -50,12 +50,12 @@ For ease of use this inventory resides within github and we create an Ansible To
 click *Save* *SOURCES* *+* 
 
 This brings you to "CREATE SOURCE" page
-* NAME                : Inventory file from Github
-* SOURCE              : Sourced from a Project
-* ANSIBLE ENVIRONMENT : Use Default Environment
-* PROJECT             : HPE OneView Workshp
-* INVENTORY FILE      : inventory/hosts
-* VERBOSITY           : 1 
+* **NAME**                : Inventory file from Github
+* **SOURCE**              : Sourced from a Project
+* **ANSIBLE ENVIRONMENT** : Use Default Environment
+* **PROJECT**             : HPE OneView Workshp
+* **INVENTORY FILE**      : inventory/hosts
+* **VERBOSITY**           : 1 
 UPDATE OPTIONS: <br>
 choose all update options: <br>
 OVERWRITE; 
@@ -83,7 +83,7 @@ Take this playbooks as a "proof of concept" level.
 * **Projects**: HPE OneView Workshop
 * **PLAYBOOK** : hpe_oneview_create_srv_templ.yml
 * **Credentials** : HPE OneView Credentials; HPE ILO Credential
-* **VIRTUAL ENVIRONMENT** : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md)
+* **VIRTUAL ENVIRONMENT** : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/exercises/virtual_environment.md)
 
 We do not need privilege escalation or any other option.
 
@@ -94,7 +94,7 @@ We do not need privilege escalation or any other option.
 * **Projects** : HPE OneView Workshop
 * **PLAYBOOK** : hpe_oneview_deploy_srv_prof.yml
 * **Credentials** : HPE OneView Credentials
-* **VIRTUAL ENVIRONMENT** : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md)
+* **VIRTUAL ENVIRONMENT** : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/exercises/virtual_environment.md)
 
 We do not need privilege escalation or any other option.
 
