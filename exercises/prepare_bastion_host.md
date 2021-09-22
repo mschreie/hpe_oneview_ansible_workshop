@@ -67,3 +67,7 @@ or you can scp the file to the bastion host
 ```
 scp file.iso root@ipofbastionhost:/var/www/html/isos/
 ```
+
+## Check result
+browse to
+http://bastion-hostsip-address/isos/
