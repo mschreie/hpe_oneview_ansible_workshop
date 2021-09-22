@@ -10,7 +10,7 @@ This exercise is going to assume you have a working OneView connection and crede
 In this exercise, we will automatically create a new server profile template and deploy the same to one or more servers.
 In order to achieve this we will need work from an existing repository that will host all the playbooks needed over the course of this workshop.
 
-<br>
+
 We already have:
 * a project using the correct github repository 
 * all credentials in place
@@ -22,7 +22,6 @@ hpe_oneview_create_srv_prof_templ.yml
 hpe_oneview_deploy_srv_prof.yml
 ```
 
-<br>
 ### Step 1 : Create HPE OneView Inventory II
 
 In the previous exersice we used a very simple approach on inventories. Naming the Oneview Host as the target in the play-header does not allow to scale tasks, when multiple Servers should be deployed.
@@ -64,7 +63,7 @@ OVERWRITE VARIABLES;
 UPDATE ON LAUNCH; 
 UPDATE OM PROJECT UPDATE; 
 
-<br>
+
 ### Step 2 : Create Job Templates
    
 Now it's time to create the **Job Templates**. 
@@ -88,7 +87,7 @@ Take this playbooks as a "proof of concept" level.
 
 We do not need privilege escalation or any other option.
 
-#### OneView : Deploy Server Template
+#### Step 3 : OneView : Deploy Server Template
 
 * NAME: OneView : Deploy Server Template
 * Inventory: Workshop Inventory from GitHub
@@ -100,8 +99,7 @@ We do not need privilege escalation or any other option.
 We do not need privilege escalation or any other option.
 
 
-<br>
-### Step 3 : Launch the job templates
+### Step 4 : Launch the job templates
 
 * Click on the little rocket next to the Job templates
 * Review output in the log window
