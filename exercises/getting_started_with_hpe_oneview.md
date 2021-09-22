@@ -37,7 +37,7 @@ Navigate to **Projects** in Tower UI, create a **New Project** :
 * SCM URL : https://github.com/<YOUR_NICKNAME>/hpe_oneview_ansible_workshop.git
 * Tick : CLEAN, DELETE ON UPDATE, UPDATE REVISION ON LAUNCH
 * SCM Credentials : YOUR GITHUB CREDENTIALS
-* Ansible Environment : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/excerices/virtual_environment.md))
+* Ansible Environment : /var/lib/awx/venv/testoneview/  (Creating this virtual enviroment please refer to [Excercice 3](/exercises/virtual_environment.md)
 
 
 In this section, The playbook needed is called :
