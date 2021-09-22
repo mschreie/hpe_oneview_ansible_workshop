@@ -7,12 +7,20 @@ After the installation of Red Hat Ansible Tower (Controller), you will need to f
 
 ### Register Red Hat Ansible Tower (Controller) .
 
+1. Ansible Tower (Controller) has to be registered to Red Hat Network. For that you'll need : **Red Hat Account credentials** or Red Hat Subscription Manifest a manifest file. Nagivate to **Settings** Then **LICENSE**. Use the mean of registration as follows (Type in the credentials or upload the manifest).
+
+![Ansible_Tower Registration](/images/register-tower.png)
+
+2. Configure Ansible Tower (Controller) to download Ansible content collections:
+
+In the illustration below you will see a typical reference design to download Ansible Content Collections from Red Hat. There a Private Automation Hub that will help to publish Content collection locally.
+
 ![Ansible_Tower](/images/ansible-workshop-illustration-01.png)
 
 
-1. Ansible Tower (Controller) has to be registered to Red Hat Network. For that you'll need : Red Hat Account credentials or Red Hat Subscription Manifest a manifest file.
-2. Configure Ansible Tower (Controller) to download Ansible content collections:
+For the sake of the simplicity of this workshop, will not install Private Automation Hub. We will connect Ansible Tower directly to the Cloud Services of Red Hat  called : Automation Hub.
 
+Below additiona Terminology to understand further the concepts:
 
    **a. Certified Content**: In the portal of Automation Hub, users have direct access to certified content collections from Red Hat and Partners. Certified collections are developed, tested, built, delivered, and supported by Red Hat and its Partners. To find more details about the scope of support, check the [Ansible Certified Content FAQ](https://access.redhat.com/articles/4916901).
 
