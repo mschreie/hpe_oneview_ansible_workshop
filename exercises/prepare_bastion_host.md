@@ -15,12 +15,12 @@ For ease of preparation we created a playbook, which is expected to be run from 
 This is explained in the prerequisite.md
 
 ## Prepare Bastion Host (steps 2 to 4)
-'''
+```
 su - awx
 git clone <your git repository>
 cd <your git repository name>
 ansible-playbook -i invetory/hosts --ask-pass prep_bastion_host.yml
-'''
+```
 This will change your current user to awx, as we do mislike running as root
 clone your repository 
 change into the directoy the cloning created
@@ -29,7 +29,7 @@ and run the playbook by asking for the root password of the basiton host
 On the host itself we assure the following (via the playbook):
 Hint: Do not run the following commands, when you have already executed the playbook.
 
-'''
+```
 # yum install -y httpd
 # systemctl enable httpd
 # systemctl start httpd
@@ -44,19 +44,19 @@ Hint: Do not run the following commands, when you have already executed the play
 ## Allows people in group wheel to run all commands
 #%wheel	ALL=(ALL)	ALL
 %wheel	ALL=(ALL)	NOPASSWD: ALL
-'''
+```
 
 ## VMware ESXi installer image available
 The ESXi installer images need to be put onto the bastion host at 
 /var/www/html/isos/
 you can use wget on the bastion host itself to download
-'''
+```
 cd /var/www/html/isos
 wget https://someplace/to/fetch/iso/from
-'''
+```
 
 or you can scp the file to the bastion host 
 
-'''
+```
 scp file.iso root@ipofbastionhost:/var/www/html/isos/
-'''
+```
