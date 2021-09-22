@@ -26,7 +26,7 @@ Bitte das inventory anpassen (also die IP-Adressen) in
 ./inventory/hosts
 
 ```
-ansible-playbook -i invetory/hosts --ask-pass prep_bastion_host.yml
+ansible-playbook -e ansible_user=root -i invetory/hosts --ask-pass prep_bastion_host.yml
 ```
 This will change your current user to awx, as we do mislike running as root
 clone your repository 
