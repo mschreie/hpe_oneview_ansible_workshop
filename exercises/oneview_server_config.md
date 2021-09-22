@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This exercise is going to assume you have a working OneView connection and credentials in place as exersized in [Getting Started with HPE OneView](/exercises/getting_started_with_hpe_oneview.md)
+This exercise is going to assume you have a working OneView connection and credentials in place as listed in the exercise [Getting Started with HPE OneView](/exercises/getting_started_with_hpe_oneview.md)
 
 ![ans-wksp-01](/images/ansible-workshop-illustration-04.png)
 
