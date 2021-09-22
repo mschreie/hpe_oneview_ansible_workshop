@@ -7,14 +7,13 @@ We assume also that you have valid Red Hat Ansible Automation Platform valid sub
 
 ### Download Ansible Tower:
 
-Access the latest version of the bundled Ansible Automation Platform installation program directly from [Downloads](https://access.redhat.com/downloads/content/480) : Please note that you must have a Red Hat customer account to access the downloads.
+Access the latest version of the bundled Ansible Automation Platform installation program (ansible-automation-platform-setup-bundle-1.2.5-1.tar.gz) directly from [Downloads](https://access.redhat.com/downloads/content/480) : Please note that you must have a Red Hat customer account to access the downloads.
 
 Make sure to pick the bundle installer :
 
 ```
-ansible-tower-setup-bundle-latest.tar.gz
-root@localhost:~$ tar xvzf ansible-tower-setup-latest.tar.gz
-
+ansible-automation-platform-setup-bundle-1.2.5-1.tar.gz
+root@localhost:~$ tar xvzf ansible-automation-platform-setup-bundle-1.2.5-1.tar.gz
 ```
 Make sure to copy this installer under /root of the Ansible Tower Instance.
 
