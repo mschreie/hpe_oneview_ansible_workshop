@@ -102,8 +102,8 @@ We do not need privilege escalation or any other option.
 ### Step 4 : Launch the job templates
 
 * Click on the little rocket next to the Job templates
-     * First Start with : Server Profile Template Creation
-     * Once Successfull then you can launch : Deploy Server Template
+     * First Start with : **Server Profile Template Creation**
+     * Once Successfull then you can launch : **Deploy Server Template**
 * Review output in the log window
 * Review in Oneview console what is happening 
 
