@@ -1,4 +1,6 @@
-This workshop will need following prerequisits:
+# Prerequisites
+
+This workshop will need following prerequisites:
 
 ## VMs needed
 Following virtual machines need to be available
