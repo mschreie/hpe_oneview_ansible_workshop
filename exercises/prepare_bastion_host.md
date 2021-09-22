@@ -15,10 +15,17 @@ For ease of preparation we created a playbook, which is expected to be run from 
 This is explained in the prerequisite.md
 
 ## Prepare Bastion Host (steps 2 to 4)
+
+Auf dem Tower:
 ```
-su - awx
+cd /var/lib/awx
 git clone <your git repository>
 cd <your git repository name>
+```
+Bitte das inventory anpassen (also die IP-Adressen) in
+./inventory/hosts
+
+```
 ansible-playbook -i invetory/hosts --ask-pass prep_bastion_host.yml
 ```
 This will change your current user to awx, as we do mislike running as root
