@@ -18,6 +18,20 @@ We already prepared somewhere else:
 * inventory
 * project
 
+## Knowledge on VMware unattanded install
+VMware explains the steps needed to isntall VMware ESXi unattanded quite well. I also used some additional Infromation for reference. Here are the links to deep dive on that subject:
+
+[Create an Installer ISO Image with a Custom Installation or Upgrade Script](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-C03EADEA-A192-4AB4-9B71-9256A9CB1F9C.html#GUID-C03EADEA-A192-4AB4-9B71-9256A9CB1F9C)
+
+[About the Default ks.cfg Installation Script](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-C3F32E0F-297B-4B75-8B3E-C28BD08680C8.html)
+
+[Installation and Upgrade Script Commands](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-61A14EBB-5CF3-43EE-87EF-DB8EC6D83698.html#GUID-61A14EBB-5CF3-43EE-87EF-DB8EC6D83698)
+
+[About the boot.cfg File](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-1DE4EC58-8665-4F14-9AB4-1C62297D866B.html#GUID-1DE4EC58-8665-4F14-9AB4-1C62297D866B)
+
+[Boot Options](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-9040F0B2-31B5-406C-9000-B02E8DA785D4.html)
+
+
 
 ## Available playbooks
 You find following playbooks which need to be integrated into Ansible Tower:
