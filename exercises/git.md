@@ -27,7 +27,9 @@ You can use a graphical interface like Microsoft Visual Code as mentioned else w
 
 ## be able to clone it to some location 
   This creates a local copy of the repository for local development
-  git clone https://github.com/<your_git_login>/<your_repository_name>
+```
+  git clone https://github.com/<your_git_login>/hpe_oneview_workshop
+```
 
 ## edit files
 ```
