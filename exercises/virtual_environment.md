@@ -101,7 +101,7 @@ To Install HPE OneView SDK, there are three ways to do so. In this workshop we w
 
 
 ```
-(hpe_venv) $ pip install hpeOneView hpICsp python-ilorest-library psutil
+(hpe_venv) $ pip install hpeOneView hpICsp python-hpilo python-ilorest-library psutil
 Collecting hpOneView
   Downloading https://files.pythonhosted.org/packages/75/0c/a932041b58827c04cf3a565e0ace692e75f731d368e532ec4d484c870030/hpOneView-5.3.0.tar.gz (81kB)
     100% |████████████████████████████████| 81kB 3.6MB/s 
