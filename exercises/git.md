@@ -70,4 +70,6 @@ You can use a graphical interface like Microsoft Visual Code as mentioned else w
 ```
   git remote -v
 ```
+The following image illustrates how pull and push get newest data and send changed data to the main repository and how Ansible Controller (aka Tower) can make use of this.
+![git_clonepullandpush.png](/images/git_clonepullandpush.png)
 
