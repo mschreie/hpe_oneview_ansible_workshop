@@ -15,7 +15,10 @@ Ansible Tower will pull the repository content from github.com so needs to be co
 
 For a simple guide please visit: http://rogerdudler.github.io/git-guide/
 
-You can use a graphical interface like Microsoft Visual Code as mentioned else where or work on cmd line. In both cases the workflow is the same, which is why you should now them:
+You can use a graphical interface like Microsoft Visual Code as mentioned else where or work on cmd line. In both cases the workflow is the same, which is why you should now them The following image illustrates how pull and push get newest data and send changed data to the main repository and how Ansible Controller (aka Tower) can make use of this.
+
+![git_clonepullandpush.png](/images/git_clonepullandpush.png)
+
 
 # For the workshop you will need to 
 
@@ -70,6 +73,4 @@ You can use a graphical interface like Microsoft Visual Code as mentioned else w
 ```
   git remote -v
 ```
-The following image illustrates how pull and push get newest data and send changed data to the main repository and how Ansible Controller (aka Tower) can make use of this.
-![git_clonepullandpush.png](/images/git_clonepullandpush.png)
 
